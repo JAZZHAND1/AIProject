@@ -5,8 +5,8 @@ define (domain Road_System)
              (connection ?x-location ?y-location)
              (fuel_station ?x-location)
              (toll_station ?x-location)
-             (set_fuel_amount ?x-fuel_amount)
-             (increase_cost ?x-cost_amount)
+             (set_fuel_amount ?x ?y-fuel_amount)
+             (increase_cost ?x ?y-cost_amount)
              (decrease_fuel ?x ?y-fuel_amount)
              (add_time ?x-time)
              
@@ -19,8 +19,10 @@ define (domain Road_System)
 
 (:functions
   (distance ?x ?y - location)
-  (per_km_fuel_consumption ?x vehicle)
-  (total-cost)
+  (add_cost ?x - cost_amount)
+  (add_fuel ?x - fuel_amount)
+  (total-monetary-cost)
+  (total-fuel-cost)
 )
 
 (:action drive
