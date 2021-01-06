@@ -37,4 +37,11 @@ define (domain Road_System)
               (fuel_station ?x)
 :effect  (and (at ?to) 
               (not (at ?from )) 
- )) 
+ ))
+
+(:action paytoll
+:parameters (?x)
+:precondition (and (at ?x) 
+              (toll_station ?x)
+:effect  () 
+ ))
