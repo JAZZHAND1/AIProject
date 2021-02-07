@@ -1,12 +1,11 @@
 (define (problem RoadSystem_Problem)
 (:domain RoadSystem)
 (:objects
-truck car bike pole - vehicle
+car - vehicle
 A B C D E  - location)
 (:init
-    ;(at truck E)
+
     (at car A)
-    ;(= (fuel-level truck) 100)
     (= (fuel-level car) 100)
     (accessible A B)
     (accessible B A)
@@ -17,11 +16,11 @@ A B C D E  - location)
     (accessible B C)
     (accessible B D)
     (accessible D B)
-
     (accessible E D)
     (accessible D E)
-   ; (accessible E A)
-   ; (accessible E B)
+
+    (toll-station B)
+   
     (= (fuel-required A B) 40)
     (= (fuel-required B A) 40)
     (= (fuel-required B E) 30)
@@ -49,18 +48,22 @@ A B C D E  - location)
     (= (time-required D E) 29) 
     (= (time-required A D) 81)
     (= (time-required D A) 81)
-
+    
+    (= (toll-price B) 10)
 
     (= (total-fuel-used) 0)
     (= (fuel-used car) 0)
-    ;(= (fuel-used truck) 0)
     (= (time-taken car) 0)
-    ;(= (time-taken truck) 0)
+    (= (total-monetary-cost) 0)
+    
 
 )
 (:goal (and (at car E))
 )
-(:metric minimize (total-fuel-used))
+
+(:metric minimize (total-monetary-cost)
+)
+
 
 
 )

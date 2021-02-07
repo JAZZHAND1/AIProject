@@ -6,7 +6,8 @@
  )
 (:predicates (at ?v - vehicle ?p - location)
              (accessible ?p1 ?p2 - location)
-             (is-bike ?v - vehicle)
+             (toll-station ?p - location)
+             (fuel-station ?p - location)
 
 )
 
@@ -15,7 +16,9 @@
             (time-taken ?v - vehicle)
             (fuel-required ?p1 ?p2 - location)
             (time-required ?p1 ?p2 - location)
-            (total-fuel-used)  
+            (total-fuel-used) 
+            (toll-price ?p1 - location) 
+            (total-monetary-cost)
           ;  (total-time-taken)
 
          
@@ -35,11 +38,10 @@
                  (increase (fuel-used ?v) (fuel-required ?from ?to))
                  (increase (time-taken ?v) (time-required ?from ?to))
                  (when
-                 (and(is-bike ?v))
-                  (and(not(is-bike ?v)))
-                   )
+                 (and(toll-station ?to))
+                 (increase (total-monetary-cost) (toll-price ?to))
+                )
             )
 )
-
 
 )
