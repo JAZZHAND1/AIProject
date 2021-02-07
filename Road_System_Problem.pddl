@@ -4,9 +4,9 @@
 truck car bike pole - vehicle
 A B C D E  - location)
 (:init
-    (at truck E)
+    ;(at truck E)
     (at car A)
-    (= (fuel-level truck) 100)
+    ;(= (fuel-level truck) 100)
     (= (fuel-level car) 100)
     (accessible A B)
     (accessible B A)
@@ -53,13 +53,12 @@ A B C D E  - location)
 
     (= (total-fuel-used) 0)
     (= (fuel-used car) 0)
-    (= (fuel-used truck) 0)
+    ;(= (fuel-used truck) 0)
     (= (time-taken car) 0)
-    (= (time-taken truck) 0)
+    ;(= (time-taken truck) 0)
 
 )
-(:goal (and (at truck A)
-       (at car E))
+(:goal (and (at car E))
 )
 (:metric minimize (total-fuel-used))
 
