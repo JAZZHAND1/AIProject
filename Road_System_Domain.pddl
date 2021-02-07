@@ -40,8 +40,20 @@
                  (when
                  (and(toll-station ?to))
                  (increase (total-monetary-cost) (toll-price ?to))
-                )
+                 )        
             )
 )
+
+(:action refuel
+    :parameters (?v - vehicle ?at - location)
+    :precondition (and (at ?v ?at)
+                  (fuel-station ?at)
+                 (<=(fuel-level ?v) 10)
+                 )
+    :effect (and (increase (fuel-level ?v) 40)
+            (increase (time-taken ?v) 10)
+            )
+)
+
 
 )

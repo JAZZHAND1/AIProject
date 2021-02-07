@@ -20,6 +20,7 @@ A B C D E  - location)
     (accessible D E)
 
     (toll-station B)
+    (fuel-station C)
    
     (= (fuel-required A B) 40)
     (= (fuel-required B A) 40)
@@ -62,6 +63,7 @@ A B C D E  - location)
 )
 
 (:metric minimize (total-monetary-cost)
+
 )
 
 
