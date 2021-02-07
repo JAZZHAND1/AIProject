@@ -12,8 +12,12 @@
 
 (:functions (fuel-level ?v - vehicle)
             (fuel-used ?v - vehicle)
+            (time-taken ?v - vehicle)
             (fuel-required ?p1 ?p2 - location)
-            (total-fuel-used)
+            (time-required ?p1 ?p2 - location)
+            (total-fuel-used)  
+          ;  (total-time-taken)
+
          
 )
 
@@ -29,6 +33,7 @@
                  (decrease (fuel-level ?v) (fuel-required ?from ?to))
                  (increase (total-fuel-used) (fuel-required ?from ?to))
                  (increase (fuel-used ?v) (fuel-required ?from ?to))
+                 (increase (time-taken ?v) (time-required ?from ?to))
                  (when
                  (and(is-bike ?v))
                   (and(not(is-bike ?v)))
